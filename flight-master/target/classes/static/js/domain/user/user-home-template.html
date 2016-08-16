@@ -1,0 +1,86 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+           
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Fasttrack'd Airlines</a>
+            </div>
+            
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    
+                    <li>
+                        <a href="#/home/user/{{userHomeController.$storage.userId}}">Find Flights</a>
+                    </li>
+                    <li>
+                        <a href="#/home/user/{{userHomeController.$storage.userId}}/itinerary">My Trips</a>
+                    </li>
+                    <li>
+                    	<a ng-click="userHomeController.logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </div>
+        
+    </nav>
+<div class="container" style="padding-top: 60px">
+	<div class="col-md-6 col-sm-12">
+		<h3>You are logged in as {{userHomeController.$storage.username}}</h3>
+		<div id="divSelectOrigin">
+			<h3>Origin</h3>
+			<select class="form-control" ng-model="userHomeController.origin"
+				ng-change="userHomeController.changeOrigin()">
+				<option ng-repeat="location in userHomeController.locations">{{location.city}}</option>
+			</select>
+		</div>
+		<div id="divSelectDestination">
+			<h3>Destination</h3>
+			<select class="form-control" ng-model="userHomeController.destination"
+				ng-change="userHomeController.changeDestination()">
+				<option ng-repeat="location in userHomeController.locations">{{location.city}}</option>
+			</select>
+		</div>
+	</div>
+	<div id="divFlights" >
+		
+		<div class="col-md-6 col-sm-12">
+		<div id="todayFlights" ng-hide="userHomeController.hideFlights">
+		<h3>Today's Flights:</h3>
+			<div class="panel panel-primary shadow"
+				ng-repeat="flight in userHomeController.flights">
+				<div class="panel-heading">{{flight.origin}} -
+					{{flight.destination}}</div>
+				<div class="panel-body">Flight Time: {{flight.flightTime}} hrs
+					| Offset: {{flight.offset}} hrs</div>
+				
+			</div>
+
+			</div>
+			<div id="availableItineraries" ng-hide="userHomeController.hideItineraries">
+			<h3>Available Itineraries</h3>
+			<div ng-repeat="itinerary in userHomeController.filteredItineraries">
+				<div class="panel panel-primary shadow" >
+					<div class="panel-heading">Itinerary:
+						{{userHomeController.origin}} - {{userHomeController.destination}}</div>
+					<div class="panel-body" ng-repeat="flight in itinerary.flights">
+						Origin: {{flight.origin}} - Destination: {{flight.destination}} <br />
+						Flight Time: {{flight.flightTime}} hrs | Offset: {{flight.offset}}
+						hrs
+					</div>
+					<div class="panel-footer">
+						<button ng-click="userHomeController.book(itinerary)")>Book</button>
+					</div>
+				</div>
+
+			</div>
+			</div>
+		</div>
+	</div>
+</div>
+

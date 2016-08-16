@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="app" class="full">
+<head>
+    <meta charset="ISO-8859-1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Example</title>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWbiIw-BcxMf5fWjsjyJvGfn6h1ezXj_Q&libraries=geometry"></script>
+    
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    
+    <link href="css/the-big-picture.css" rel="stylesheet">
+    <link href="css/coreStyle.css" rel="stylesheet">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular-route.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+    
+    <script src="js/core/app.js"></script>
+    <script src="js/core/constants.js"></script>
+        
+    <script src="js/core/routes.js"></script>
+    
+    
+    
+    <script src="js/domain/map/MapService.js"></script>
+    
+    <script src="js/domain/user/UserService.js"></script>
+    <script src="js/domain/itinerary/ItineraryService.js"></script>
+    <script src="js/domain/flight/FlightService.js"></script>
+    
+    <script src="js/domain/map/MapController.js"></script>
+    <script src="js/domain/home/HomeController.js"></script>
+    <script src="js/domain/user/UserHomeController.js"></script>
+    <script src="js/domain/itinerary/ItineraryController.js"></script>
+    <script src="js/domain/itinerary/detail/ItineraryDetailController.js"></script>
+    <style>
+	    html {
+			  height: 100%;
+			}
+		
+		body {
+		  height: 100%;
+		}
+		h2, h3{
+			color: white
+		}
+    </style>
+</head>
+<body>
+	
+	<ng-view></ng-view>
+</body>
+</html>
